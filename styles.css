@@ -1,0 +1,430 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f6f5;
+    color: #112a46;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #08548c;
+    padding: 10px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: #08548c;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.option {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.option:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.option h2 {
+    color: #0071bc;
+    font-size: 1.5em;
+    margin: 0 0 10px;
+}
+
+.option p {
+    color: #555;
+    margin: 0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.modal-logo {
+    height: 60px; /* Increased from 40px to 60px */
+    margin-bottom: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close:hover {
+    color: #000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 15px 0 5px;
+    font-weight: 600;
+    color: #112a46;
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.email-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.email-suggestions {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.email-suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    color: #112a46;
+}
+
+.email-suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+button {
+    background-color: #0071bc;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #005ea2;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Pay Fee Button Styling */
+.pay-fee-link {
+    text-decoration: none;
+}
+
+.pay-fee-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.pay-fee-btn i {
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+.pay-fee-btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Pulse Animation for Pay Fee Button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px 5px rgba(211, 47, 47, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
+    }
+}
+
+.validation, .result {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.validation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.validation li {
+    margin: 20px 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.validation li.visible {
+    opacity: 1;
+}
+
+.validation-step {
+    display: flex;
+    align-items: center;
+}
+
+.validation-step i {
+    font-size: 1.2em;
+    color: #0071bc;
+    margin-right: 10px;
+}
+
+.validation-step-text {
+    flex: 1;
+}
+
+.validation-step-text .title {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #112a46;
+}
+
+.validation-step-text .description {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #ddd;
+    margin-top: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #0071bc;
+    transition: width 2s ease-in-out;
+}
+
+.result h3 {
+    color: #0071bc;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.result p {
+    text-align: center;
+}
+
+/* Approval Message Styling */
+.approval-message {
+    background-color: #ffe6e6;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.approval-title {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #d32f2f;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.approval-message p {
+    margin: 5px 0;
+    color: #112a46;
+    text-align: center;
+}
+
+#user-name {
+    color: #d32f2f;
+}
+
+.approval-message .highlight {
+    color: #d32f2f;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: #08548c;
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #fff;
+    margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button, .pay-fee-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
